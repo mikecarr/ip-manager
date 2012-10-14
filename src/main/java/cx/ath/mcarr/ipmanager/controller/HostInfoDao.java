@@ -4,6 +4,11 @@ import java.util.List;
 
 import cx.ath.mcarr.ipmanager.domain.HostInfo;
 
+/**
+ * 
+ * @author mcarr
+ *
+ */
 public interface HostInfoDao {
 
 	public int addIp(String ip);

@@ -57,7 +57,7 @@ $(document).ready(function() {
 							<tr>
 								<td>${o.id}</td>
 								<td>${o.ipaddress}</td>
-								<td>${o.date_rec}</td>
+								<td>${o.date_rec} PST</td>
 							</tr>
 
 						</c:forEach>

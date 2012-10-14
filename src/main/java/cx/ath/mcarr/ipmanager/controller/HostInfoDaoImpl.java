@@ -44,7 +44,7 @@ public class HostInfoDaoImpl implements HostInfoDao{
 
 	
 	public List<HostInfo> getIpHistory() {
-		String sql = "select * from hostinfo order by date_rec desc";
+		String sql = "select id,ipaddress,CONVERT_TZ(date_rec,'+00:00','-08:00') date_rec from hostinfo order by date_rec desc";
 	    List<HostInfo> ipList  = jdbcTemplate.query(sql, new BeanPropertyRowMapper(HostInfo.class));
 	    return ipList;
 	}

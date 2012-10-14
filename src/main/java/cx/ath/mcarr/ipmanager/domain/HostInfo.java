@@ -2,6 +2,11 @@ package cx.ath.mcarr.ipmanager.domain;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author mcarr
+ *
+ */
 public class HostInfo {
 
 	private long id;
