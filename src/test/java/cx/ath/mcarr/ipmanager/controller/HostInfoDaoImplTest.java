@@ -1,6 +1,6 @@
 package cx.ath.mcarr.ipmanager.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,16 +9,19 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.util.ReflectionTestUtils;
-import org.springframework.util.ReflectionUtils;
 
 import cx.ath.mcarr.ipmanager.domain.HostInfo;
 
+/**
+ * 
+ * @author mcarr
+ *
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class HostInfoDaoImplTest {
 
