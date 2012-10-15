@@ -11,7 +11,7 @@ import cx.ath.mcarr.ipmanager.domain.HostInfo;
  */
 public interface HostInfoDao {
 
-	public int addIp(String ip);
+	public int addIp(String ip) throws Exception;
 	
-	public List<HostInfo> getIpHistory();
+	public List<HostInfo> getIpHistory() throws Exception;
 }

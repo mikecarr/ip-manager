@@ -31,7 +31,7 @@ $(document).ready(function() {
 	} );
 } );
 </script>
-
+<title>IP Manager - List</title>
 </head>
 <body>
 
@@ -40,7 +40,11 @@ $(document).ready(function() {
 		<div class="hero-unit">
 			<h1>IP Listing</h1>
 		</div>
-
+		
+		<c:if test="${not empty errorMessage}">
+			<div style="color:red">${errorMessage}</div> 			
+		</c:if>
+		
 		<div class="bs-docs-example">
 			<c:if test="${not empty ipList}">
 
@@ -49,6 +53,7 @@ $(document).ready(function() {
 						<tr>
 							<th>Id</th>
 							<th>IP</th>
+							<th>IP Admin</th>
 							<th>Date</th>
 						</tr>
 					</thead>
@@ -57,6 +62,7 @@ $(document).ready(function() {
 							<tr>
 								<td>${o.id}</td>
 								<td>${o.ipaddress}</td>
+								<td><a href="https://${o.ipaddress}:7777" target="_blank">${o.ipaddress}</a></td>
 								<td>${o.date_rec} PST</td>
 							</tr>
 
@@ -64,6 +70,10 @@ $(document).ready(function() {
 					</tbody>
 				</table>
 			</c:if>
+		</div>
+		
+		<div>
+		<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 		</div>
 	</div>
 

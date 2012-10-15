@@ -1,5 +1,6 @@
 package cx.ath.mcarr.ipmanager.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,13 @@ public class IpController {
  
 		System.out.println("current IP: " + currentIp);
 		
-		int rows = hostInfoDao.addIp(currentIp);
+		int rows = -1;
+		try {
+			rows = hostInfoDao.addIp(currentIp);
+		} catch (Exception e) {
+			model.addAttribute("errorMessage", e.getMessage());
+			e.printStackTrace();
+		}
 		System.out.println(rows + " inserted.");
 		
 		model.addAttribute("ipaddress", currentIp);
@@ -39,7 +46,13 @@ public class IpController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String getAll(ModelMap model) {
 		
-		List<HostInfo> ipList = hostInfoDao.getIpHistory();
+		List<HostInfo> ipList = null;
+		try {
+			ipList = hostInfoDao.getIpHistory();
+		} catch (Exception e) {
+			model.addAttribute("errorMessage", e.getMessage());
+			e.printStackTrace();
+		}
 		model.addAttribute("ipList", ipList);
 		
 		return "list";

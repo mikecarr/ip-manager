@@ -25,7 +25,7 @@ public class HostInfoDaoImpl implements HostInfoDao{
 	         "INSERT INTO hostinfo (ipaddress)" +
 	         "VALUES (?)";
 
-	public int addIp(String ip) {
+	public int addIp(String ip) throws Exception {
 		
 		// define query arguments
     	Object[] params = new Object[] { ip };
@@ -43,7 +43,7 @@ public class HostInfoDaoImpl implements HostInfoDao{
 	}
 
 	
-	public List<HostInfo> getIpHistory() {
+	public List<HostInfo> getIpHistory() throws Exception {
 		String sql = "select id,ipaddress,CONVERT_TZ(date_rec,'+00:00','-08:00') date_rec from hostinfo order by date_rec desc";
 	    List<HostInfo> ipList  = jdbcTemplate.query(sql, new BeanPropertyRowMapper(HostInfo.class));
 	    return ipList;
